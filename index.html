@@ -104,6 +104,35 @@ a.term:hover{text-decoration-style:solid;color:var(--acc,var(--ink))}
 .eq-key b{color:var(--acc);font-weight:600}
 .eq-key .say{margin-top:8px;color:var(--ink)}
 .eq-key .say::before{content:"say it: ";color:var(--acc);letter-spacing:.12em;text-transform:uppercase;font-size:10px}
+/* ---------- deep-dive highlights ---------- */
+mark.dive{background:linear-gradient(180deg, transparent 58%, color-mix(in srgb, var(--acc) 22%, transparent) 58%);
+  color:inherit;padding:0 1px;border-radius:2px}
+a.dive-link{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--acc);text-decoration:none;border:1px solid color-mix(in srgb, var(--acc) 45%, transparent);
+  border-radius:999px;padding:2px 9px;margin-left:7px;white-space:nowrap;vertical-align:1px}
+a.dive-link:hover{background:var(--acc);color:var(--paper);border-color:var(--acc)}
+/* ---------- self-test ---------- */
+section#test{padding:88px 0 30px;border-top:1px solid var(--line);scroll-margin-top:64px}
+.q-card{background:var(--paper-2);border:1px solid var(--line);border-radius:12px;
+  padding:18px 20px;margin:0 0 14px}
+.q-card .q-num{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--ink-soft)}
+.q-card .q-text{font-size:16.5px;font-weight:600;margin:6px 0 12px}
+.q-opt{display:block;width:100%;text-align:left;font-family:var(--serif);font-size:15px;
+  line-height:1.5;cursor:pointer;background:var(--paper);color:var(--ink);
+  border:1px solid var(--line);border-radius:9px;padding:9px 13px;margin:0 0 8px}
+.q-opt b{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);margin-right:8px}
+.q-opt:hover:not(:disabled){border-color:var(--ink-soft)}
+.q-opt:disabled{cursor:default;opacity:.75}
+.q-opt.correct{border-color:var(--res);background:color-mix(in srgb, var(--res) 10%, var(--paper));opacity:1}
+.q-opt.wrong{border-color:var(--einstein);background:color-mix(in srgb, var(--einstein) 8%, var(--paper))}
+.q-why{display:none;font-family:var(--mono);font-size:12px;line-height:1.65;color:#514a3d;
+  border-left:3px solid var(--res);border-radius:0 8px 8px 0;background:var(--paper);
+  padding:10px 14px;margin-top:4px}
+.q-why.on{display:block}
+.q-why b{color:var(--res)}
+.q-score{display:flex;gap:18px;align-items:center;font-family:var(--mono);font-size:12px;
+  color:var(--ink-soft);margin:18px 0 8px}
+.q-score b{font-size:16px;color:var(--ink)}
 .term-pop{position:absolute;z-index:80;max-width:min(400px,92vw);background:var(--paper-2);
   border:1px solid var(--line);border-radius:12px;padding:15px 17px 13px;
   box-shadow:0 16px 40px -14px rgba(30,20,5,.35);font-size:14.5px;line-height:1.6}
@@ -230,6 +259,7 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-heigh
       <a class="e" href="#einstein">II · E=mc²</a>
       <a class="s" href="#schrodinger">III · Schrödinger</a>
       <a class="r" href="#resonance">IV · Resonance</a>
+      <a href="#test">Test</a>
       <a href="glossary.html">Glossary</a>
       <a href="#together">All four at once</a>
       <a href="#sources">Sources</a>
@@ -395,7 +425,7 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-heigh
         <span><b>dp/dt</b> — the rate at which that momentum is changing, per second</span>
         <span class="say">force is how fast momentum flows into or out of a thing. Hold the mass constant and it collapses back to F = ma.</span>
       </div>
-      <p>This form is the natural tool when mass is on the move — apply it to the whole system, rocket plus exhaust, and the rocket equation falls out. It also hands you
+      <p><mark class="dive">This form is the natural tool when mass is on the move — apply it to the whole system, rocket plus exhaust, and the rocket equation falls out.</mark><a class="dive-link" href="deep-dives.html#rocket-momentum">deep dive ⤵</a> It also hands you
       conservation of momentum directly. For two interacting bodies free of outside forces, the third law makes the internal forces cancel, so d(p₁+p₂)/dt = 0 — total momentum is constant. Collisions, recoil, and
       staging all fall out of that one line.</p>
       <p>The first law is not a special case of the second — it defines the arenas where the other laws
@@ -428,10 +458,10 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-heigh
       href="glossary.html#action-principle">least action</a>. Hamiltonian mechanics recasts
       dynamics as flow in <a class="term" href="glossary.html#phase-space">phase space</a>, the
       space of every possible position and <a class="term"
-      href="glossary.html#momentum">momentum</a>. These reformulations aren't cosmetic: <a
+      href="glossary.html#momentum">momentum</a>. These reformulations aren't cosmetic: <mark class="dive"><a
       class="term" href="glossary.html#noethers-theorem">Noether's theorem</a> shows momentum
       conservation <em>is</em> the translation symmetry of space, and energy conservation
-      <em>is</em> the translation symmetry of time. The conservation laws Newton's third law hinted
+      <em>is</em> the translation symmetry of time.</mark><a class="dive-link" href="deep-dives.html#noether">deep dive ⤵</a> The conservation laws Newton's third law hinted
       at turn out to be statements about the shape of <a class="term"
       href="glossary.html#spacetime">spacetime</a>.</p>
       <p>Two humbling footnotes. Determinism survives on paper but not in practice: <a class="term"
@@ -651,8 +681,8 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-heigh
 
     <article class="lvl-panel" data-lvl="3">
       <p class="lvl-name">Level 03 · University</p>
-      <p>E&nbsp;=&nbsp;mc² is the rest-frame slice of the full relation between energy, <a class="term"
-      href="glossary.html#momentum">momentum</a> and mass:</p>
+      <p><mark class="dive">E&nbsp;=&nbsp;mc² is the rest-frame slice of the full relation between energy, <a class="term"
+      href="glossary.html#momentum">momentum</a> and mass:</mark><a class="dive-link" href="deep-dives.html#energy-triangle">deep dive ⤵</a></p>
       <div class="eq">E² = (pc)² + (mc²)²<small>rest energy E₀ = mc² · total energy E = γmc² · kinetic energy T = (γ−1)mc²</small></div>
       <div class="eq-key">
         <span><b>E</b> — the total energy: rest energy plus energy of motion</span>
@@ -677,18 +707,18 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-heigh
 
     <article class="lvl-panel" data-lvl="4">
       <p class="lvl-name">Level 04 · Frontier</p>
-      <p>In modern usage <b>mass is the invariant length of the <a class="term"
+      <p>In modern usage <mark class="dive"><b>mass is the invariant length of the <a class="term"
       href="glossary.html#four-momentum">four-momentum</a></b>, m²c⁴ = E² − (pc)² — the same
-      in every reference frame. The old notion of "relativistic mass" (mass growing with
+      in every reference frame.</mark><a class="dive-link" href="deep-dives.html#four-momentum">deep dive ⤵</a> The old notion of "relativistic mass" (mass growing with
       speed) has been retired from physics as a unit conversion masquerading as an effect:
       what grows with speed is energy. Mass is frame-invariant but not additive — a box of hot
       gas outweighs the same box cold, because the invariant mass of a system includes its
       internal energy.</p>
       <p>Read the equation right-to-left and it becomes a statement about you. A proton weighs
       938&nbsp;<a class="term" href="glossary.html#electronvolt">MeV</a>/c², but the three <a
-      class="term" href="glossary.html#quark">quarks</a> inside account for barely 1% of that — the
+      class="term" href="glossary.html#quark">quarks</a> inside account for barely 1% of that — <mark class="dive">the
       rest is the confined energy of the <a class="term" href="glossary.html#gluon">gluon</a>
-      field, weighed. Protons and neutrons are most of your mass. So roughly 99% of your body
+      field, weighed</mark><a class="dive-link" href="deep-dives.html#proton-mass">deep dive ⤵</a>. Protons and neutrons are most of your mass. So roughly 99% of your body
       weight is not "matter" in the naive sense — it is binding energy, and it weighs because
       E = mc² runs in both directions.</p>
       <p>Einstein's 1905 derivation was three pages: a body emitting two light pulses in opposite
@@ -842,9 +872,9 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-heigh
       a ladder of discrete energy levels. Electrons dropping between rungs emit light of exact
       colors, which is why neon glows red-orange and each element has a spectral fingerprint that
       telescopes can read from light-years away.</p>
-      <p>Two warnings about what ψ is. It is not a ripple in water or air — it is a wave of
+      <p>Two warnings about what ψ is. <mark class="dive">It is not a ripple in water or air — it is a wave of
       <em>probability amplitude</em>: a complex number at every point in space whose squared size
-      gives the odds of finding the particle there. And it is not a metaphor. Fire electrons one at
+      gives the odds of finding the particle there.</mark><a class="dive-link" href="deep-dives.html#probability-amplitude">deep dive ⤵</a> And it is not a metaphor. Fire electrons one at
       a time at a <a class="term" href="glossary.html#double-slit-experiment">pair of slits</a> and
       each lands as a single dot, yet thousands of dots slowly build <a class="term"
       href="glossary.html#interference">interference</a> stripes — each electron's wave passed
@@ -887,9 +917,9 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-heigh
       <p>Because the equation is linear, solutions <a class="term"
       href="glossary.html#superposition">superpose</a>: a particle can occupy a sum of states at
       once, with interference between the terms. Observables become <a class="term"
-      href="glossary.html#operator">operators</a>, and their failure to <a class="term"
+      href="glossary.html#operator">operators</a>, and <mark class="dive">their failure to <a class="term"
       href="glossary.html#commutator">commute</a> — [x̂, p̂] = iħ — <em>is</em> the <a class="term"
-      href="glossary.html#uncertainty-principle">uncertainty principle</a>. Δx·Δp ≥ ħ/2 isn't a
+      href="glossary.html#uncertainty-principle">uncertainty principle</mark><a class="dive-link" href="deep-dives.html#uncertainty">deep dive ⤵</a></a>. Δx·Δp ≥ ħ/2 isn't a
       measurement clumsiness; it's built into the wave description itself. Time evolution preserves
       total probability, and measurement outcomes distribute as |ψ|² dictates. Expectation values
       obey Newton on average — <a class="term" href="glossary.html#ehrenfests-theorem">Ehrenfest's
@@ -910,9 +940,9 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-heigh
       href="glossary.html#configuration-space">configuration space</a> — ψ(x₁, x₂).
       Configuration space is where <b>entanglement</b> comes from: the wavefunction of a pair need
       not factor into one story per particle. What "measurement" physically is remains the open
-      interpretive question. <a class="term" href="glossary.html#decoherence">Decoherence</a>
+      interpretive question. <mark class="dive"><a class="term" href="glossary.html#decoherence">Decoherence</a>
       explains why superpositions become effectively classical through environmental
-      entanglement — without by itself selecting an outcome. The equation, meanwhile, has
+      entanglement — without by itself selecting an outcome.</mark><a class="dive-link" href="deep-dives.html#decoherence">deep dive ⤵</a> The equation, meanwhile, has
       never made a wrong prediction.</p>
       <p>It is also, knowingly, an approximation: non-relativistic, spinless. Marry quantum mechanics
       to <a class="term" href="glossary.html#special-relativity">special relativity</a> and you get
@@ -1123,8 +1153,8 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-heigh
 
     <article class="lvl-panel" data-lvl="4">
       <p class="lvl-name">Level 04 · Frontier</p>
-      <p>Mathematically, a resonance is a <b>pole of the response function</b> in the complex frequency
-      plane. The real part of the pole sets the ring frequency; the imaginary part sets the decay
+      <p>Mathematically, <mark class="dive">a resonance is a <b>pole of the response function</b> in the complex frequency
+      plane.</mark><a class="dive-link" href="deep-dives.html#resonance-pole">deep dive ⤵</a> The real part of the pole sets the ring frequency; the imaginary part sets the decay
       rate. The observable line shape is the Lorentzian, also called the <a class="term"
       href="glossary.html#breit-wigner">Breit–Wigner curve</a>. That shared structure is why
       the same formula describes a struck bell, an atom absorbing light, and a particle
@@ -1138,7 +1168,7 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-heigh
       microwave absorption frequency in the atom — to a part in 10¹⁶, an error of about one
       second per 300 million years. The SI second is <em>defined</em> as a count of that
       caesium resonance. Optical-lattice clocks go further and push <a class="term"
-      href="glossary.html#q-factor">Q</a> beyond 10¹⁷ — the sharpest resonances ever measured.
+      href="glossary.html#q-factor">Q</a> beyond 10¹⁶ — the sharpest resonances ever measured.
       Beyond the linear regime lie <a class="term"
       href="glossary.html#parametric-resonance">parametric resonance</a>, <a class="term"
       href="glossary.html#fano-resonance">Fano interference</a>, and <a class="term"
@@ -1245,8 +1275,8 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-heigh
           climb their electric repulsion classically. Two positive charges approach, repel, and turn
           back — every time, if you compute it with Newton. <a class="term"
           href="glossary.html#fusion">Fusion</a> happens only because protons are also
-          waves. A wave doesn't have to clear the barrier; a sliver of it leaks through. George
-          Gamow worked out this barrier-tunneling math in 1928. The odds it predicts are tiny — so
+          waves. A wave doesn't have to clear the barrier; a sliver of it leaks through. <mark class="dive" style="--acc:var(--schro)">George
+          Gamow worked out this barrier-tunneling math in 1928.</mark><a class="dive-link" style="--acc:var(--schro)" href="deep-dives.html#gamow-window">deep dive ⤵</a> The odds it predicts are tiny — so
           tiny that a cubic metre of the Sun's core generates only about 275 watts, roughly the
           power density of a compost heap. The Sun shines by quantum leak, and it wins by being
           enormous.</p>
@@ -1401,8 +1431,8 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-heigh
         <div class="pt" style="--pc:var(--einstein)">
           <p class="pk">Einstein · the correction</p>
           <p><a class="term" href="glossary.html#general-relativity">Relativity</a> — Einstein's special theory, where E&nbsp;=&nbsp;mc² comes from, plus his general theory of gravity — makes each satellite clock run about 38 μs per
-          day fast. Two effects compete. Weaker gravity up there speeds the clock by +45
-          μs per day; orbital speed slows it by −7 μs per day. The net error sounds tiny until
+          day fast. Two effects compete. <mark class="dive" style="--acc:var(--einstein)">Weaker gravity up there speeds the clock by +45
+          μs per day; orbital speed slows it by −7 μs per day.</mark><a class="dive-link" style="--acc:var(--einstein)" href="deep-dives.html#gps-budget">deep dive ⤵</a> The net error sounds tiny until
           you multiply by the speed of light. Radio signals cover about 11 km in 38 μs, so an
           uncorrected system drifts by roughly 10 km of position error per day. The cure is baked in
           before launch. Engineers set each clock's frequency slightly low — 10.22999999543 MHz
@@ -1641,9 +1671,9 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-heigh
           where the nucleus swallows passing neutrons. At the first big one, 6.7 eV, the capture
           cross-section leaps to several thousand barns — thousands of times its neighboring values.
           A slowing neutron must sprint through that resonance region without being swallowed, or
-          the chain dies. Reactor designers call the odds of surviving the sprint the resonance
+          the chain dies. <mark class="dive" style="--acc:var(--res)">Reactor designers call the odds of surviving the sprint the resonance
           escape probability, p — one term in the four-factor formula that decides <a class="term"
-          href="glossary.html#criticality">criticality</a>. The same resonances also
+          href="glossary.html#criticality">criticality</a>.</mark><a class="dive-link" style="--acc:var(--res)" href="deep-dives.html#resonance-escape">deep dive ⤵</a> The same resonances also
           police the reactor: hotter fuel jiggles its U-238 nuclei faster, which
           Doppler-broadens the resonances into wider traps; capture rises, and the chain
           automatically throttles back. Physics, not software, applies that brake.</p>
@@ -2240,6 +2270,25 @@ footer p{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-heigh
       <a href="#sources">quartz clock [25]</a> · <a href="#sources">Nobel 2014, blue LED [26]</a> ·
       <a href="#sources">DOE fuel properties [27]</a> · <a href="#sources">SMPTE ST 2082-1 [28]</a> ·
       <a href="#sources">ITU-T G.652 [29]</a></p>
+  </div>
+</section>
+
+<!-- ============ SELF-TEST ============ -->
+<section id="test">
+  <div class="wrap">
+    <p class="eyebrow">Part three · check yourself</p>
+    <h1 style="font-size:clamp(34px,5vw,54px)">Test your level</h1>
+    <p class="standfirst">Reading feels like learning; <b>retrieval is learning</b>. Pick the level
+    you've been reading at — eight questions, two per law. Answer, then read the why: every wrong
+    option is one of the misconceptions this site warns about, so a miss tells you exactly what to
+    reread.</p>
+    <div class="lvl-tabs" id="test-tabs" style="margin:26px 0 22px">
+      <button class="lvl-tab on" data-lvl="1">01 · Plain sight</button>
+      <button class="lvl-tab" data-lvl="2">02 · High school</button>
+      <button class="lvl-tab" data-lvl="3">03 · University</button>
+      <button class="lvl-tab" data-lvl="4">04 · Frontier</button>
+    </div>
+    <div id="quiz-root"></div>
   </div>
 </section>
 
@@ -3476,6 +3525,169 @@ function mono(ctx,size){ ctx.font = size+'px "IBM Plex Mono", monospace'; }
     roV.textContent = eye>0.5 ? 'PASS' : (eye>0.25 ? 'MARGINAL' : 'FAIL');
     roLat.textContent = lat.toFixed(0)+' ns';
   }
+})();
+
+/* ============ self-test ============ */
+(function(){
+  const QUIZ = {
+  1:[
+   {law:'newton', q:'You push a shopping cart and let go. It rolls a while, then stops. Why does it stop?',
+    o:['Objects naturally run out of motion','Friction from the floor and air pushes against it','Its inertia gets used up','Gravity gradually slows it'], a:1,
+    why:'Nothing "runs out" — motion is free and would continue forever. A force must change it, and friction is that force. (Law I, plain sight.)'},
+   {law:'newton', q:'You push hard on a concrete wall. What pushes back on your hand?',
+    o:['Nothing — walls are passive','Your own arm muscles','The wall, exactly as hard as you push','The wall, but slightly less'], a:2,
+    why:'Pushes always come in equal-and-opposite pairs — you cannot touch without being touched. (Law III.)'},
+   {law:'einstein', q:'Where does the Sun’s energy come from?',
+    o:['Burning gas, like a giant bonfire','Converting a little of its own mass into light','Collecting starlight and reflecting it','Electric currents in space'], a:1,
+    why:'The Sun quietly converts about 4 million tonnes of itself into light every second — E = mc² at work, not chemistry.'},
+   {law:'einstein', q:'Light and heat are…',
+    o:['Two completely different things','Both energy — one currency in different costumes','Energy only when they do work','Heat is energy; light is just color'], a:1,
+    why:'Every form — light, heat, motion, chemical, mass — is measured in the same unit, the joule, because each converts into the others.'},
+   {law:'schrodinger', q:'An electron in an atom is best pictured as…',
+    o:['A tiny planet orbiting a sun','A hard ball sitting at one point','A spark jumping randomly','A spread-out ripple of probability'], a:3,
+    why:'Small things are wavy: the electron is a standing wave around the nucleus, and the wave’s size gives the odds of finding it.'},
+   {law:'schrodinger', q:'Why does each element glow its own exact colors?',
+    o:['Trapped waves only fit in certain shapes, so energy comes in fixed rungs','Each element is painted differently','Hotter elements glow bluer, that’s all','The colors are random'], a:0,
+    why:'Like a guitar string playing only certain notes, confined electron waves allow only certain energies — jumps between rungs are exact colors.'},
+   {law:'resonance', q:'To send a playground swing high with only small pushes, you should…',
+    o:['Push as hard as possible at random moments','Push in rhythm with the swing','Hold the chains steady','Push just as the swing rushes back toward you'], a:1,
+    why:'Timed pushes add a little energy every cycle — that’s resonance. Random pushes mostly fight the motion.'},
+   {law:'resonance', q:'Hundreds of stations fill the air. How does a radio pick just one?',
+    o:['The antenna points at one tower','Each station takes a turn','A circuit tuned to one rhythm responds hugely to it and shrugs off the rest','The radio amplifies everything equally'], a:2,
+    why:'Tuning is resonance: the receiver is an electrical swing whose natural rhythm you set to match one station.'}],
+  2:[
+   {law:'newton', q:'A 1,000 kg car feels a 3,000 N net force. Its acceleration is…',
+    o:['0.33 m/s²','3 m/s²','3,000 m/s²','9.8 m/s²'], a:1,
+    why:'a = F/m = 3,000 ÷ 1,000 = 3 m/s². Halve the mass and you’d double the acceleration.'},
+   {law:'newton', q:'A book rests on a table. Why doesn’t it accelerate?',
+    o:['No forces act on it','Gravity and the table’s push balance: F_net = 0 — equilibrium','Its action–reaction pair cancels on the book','It’s too heavy to move'], a:1,
+    why:'Equilibrium is the second law with zero on the left. Action–reaction pairs never cancel — they act on different objects.'},
+   {law:'einstein', q:'c² ≈ 9×10¹⁶. What does that huge number mean physically?',
+    o:['Light weighs a lot','Energy travels at c²','One gram of mass stores about 9×10¹³ J — city-scale energy','Only near-light-speed objects have energy'], a:2,
+    why:'c² is the exchange rate between mass and energy — why nuclear sources are ~a million times denser than chemical ones.'},
+   {law:'einstein', q:'Weigh a helium nucleus against the four hydrogens that fused to make it. The helium is…',
+    o:['Exactly equal','About 0.7% lighter — the difference left as energy','Heavier','Half the mass'], a:1,
+    why:'That missing sliver is the mass defect — multiplied by c², it is the sunlight.'},
+   {law:'schrodinger', q:'|ψ|² at a point tells you…',
+    o:['The particle’s speed there','Its electric charge there','Its size','The probability of finding the particle near that point'], a:3,
+    why:'The Born rule: the wave itself is amplitude; its squared size is the odds. Even perfect knowledge gives only probabilities.'},
+   {law:'schrodinger', q:'Quantum tunneling means…',
+    o:['A wave leaks through a barrier the particle "shouldn’t" be able to cross','Particles drill physical holes','Electrons teleport with no rule at all','Energy is briefly destroyed'], a:0,
+    why:'Waves don’t stop dead at thin walls — a little leaks through. Your phone’s flash memory writes every photo this way.'},
+   {law:'resonance', q:'f₀ = (1/2π)√(k/m). To double a system’s natural frequency, the stiffness k must be…',
+    o:['Doubled','Quadrupled','Halved','Left alone — change mass instead, linearly'], a:1,
+    why:'f₀ grows with the square root of k: ×4 stiffness → ×2 frequency. The square root is the point of the formula.'},
+   {law:'resonance', q:'Drive a lightly damped system exactly at f₀. Its amplitude…',
+    o:['Stays the same as any other frequency','Becomes infinite instantly','Cancels to zero','Grows until friction burns energy as fast as you feed it'], a:3,
+    why:'Every push arrives in step, adding energy each cycle; growth stops only when damping losses match the input. Peak ≈ Q × static.'}],
+  3:[
+   {law:'newton', q:'Why is F = dp/dt more general than F = ma?',
+    o:['It works in rotating frames without corrections','Applied to a whole system, it tracks momentum flow — rocket plus exhaust gives the rocket equation','It ignores mass entirely','It’s just older notation'], a:1,
+    why:'The momentum form handles systems where mass moves between parts — apply it to rocket + exhaust and staging falls out. (Not to the rocket alone!)'},
+   {law:'newton', q:'Two bodies collide. Their total momentum is conserved…',
+    o:['Always, no conditions','Only if the collision is elastic','When no net external force acts on the pair','Only if the masses are equal'], a:2,
+    why:'Internal third-law pairs cancel, but d(p₁+p₂)/dt = F_external. Two balls colliding mid-fall do not conserve total momentum.'},
+   {law:'einstein', q:'From E² = (pc)² + (mc²)², a massless photon has…',
+    o:['E = pc','E = 0','E = mc²','E = ½mv²'], a:0,
+    why:'Set m = 0 and the triangle collapses to its momentum leg: light carries energy and momentum with no rest mass.'},
+   {law:'einstein', q:'Binding energy per nucleon peaks near iron. Energy is therefore released by…',
+    o:['Only fusion','Only fission','Neither — iron absorbs everything','Fusing lighter-than-iron nuclei AND splitting heavier-than-iron ones'], a:3,
+    why:'Both directions climb toward the iron peak — stars from the light end, reactors from the heavy end.'},
+   {law:'schrodinger', q:'For a particle in a box, E_n ∝ n²/L². Shrink the box and the ground energy…',
+    o:['Rises — confinement alone costs energy','Falls','Stays fixed','Goes to zero'], a:0,
+    why:'Tighter confinement means a more curved wave, which is kinetic energy. It’s why quantum dots shift color with size.'},
+   {law:'schrodinger', q:'[x̂, p̂] = iħ tells you that…',
+    o:['Measurement devices are clumsy','Sharper position means fuzzier momentum — a built-in trade-off, Δx·Δp ≥ ħ/2','Energy is always quantized','Nothing observable'], a:1,
+    why:'The uncertainty principle isn’t experimental error; it lives in the wave description itself, in the failure of x̂ and p̂ to commute.'},
+   {law:'resonance', q:'Drive a damped oscillator exactly at ω₀. The displacement lags the drive by…',
+    o:['0°','45°','90°','180°'], a:2,
+    why:'The phase sweeps 0° → 180° through resonance and crosses exactly 90° at ω₀ — the drive then feeds energy all cycle long.'},
+   {law:'resonance', q:'A resonator’s Q factor tells you…',
+    o:['Its electric charge','Peak response ≈ Q × static, and how narrow the peak is','The spring’s length','The mass ratio'], a:1,
+    why:'Q = ω₀/Δω: tall and narrow go together. Caesium clocks work because their atomic resonance has astronomically high Q.'}],
+  4:[
+   {law:'newton', q:'Noether’s theorem ties conservation of momentum to…',
+    o:['The symmetry of space under translation','The third law','Time-reversal symmetry','Rotational symmetry'], a:0,
+    why:'Every continuous symmetry buys a conservation law: space translation → momentum, time translation → energy.'},
+   {law:'newton', q:'Newtonian mechanics emerges from quantum mechanics…',
+    o:['Below a critical temperature','It doesn’t — they contradict','On averages: Ehrenfest’s theorem gives d⟨p⟩/dt = −⟨∇V⟩','Only for planetary masses'], a:2,
+    why:'Expectation values obey a Newton-like law — and match Newton exactly for narrow wavepackets with action ≫ ħ. The classical world is the quantum world, averaged.'},
+   {law:'einstein', q:'About 99% of a proton’s mass is…',
+    o:['The Higgs-given rest mass of its quarks','Electric field energy','Neutrinos bound inside','Energy of the confined quark and gluon fields (QCD dynamics), weighed via E = mc²'], a:3,
+    why:'The three quarks’ intrinsic masses total ~1%. Your weight is almost entirely QCD field energy — E = mc² read right-to-left.'},
+   {law:'einstein', q:'Physicists retired "relativistic mass" because…',
+    o:['Mass is frame-invariant — what grows with speed is energy','Einstein forbade it','Mass actually shrinks with speed','It was too hard to compute'], a:0,
+    why:'Modern usage: m is the invariant length of the four-momentum, identical in every frame; γm is just energy in disguise.'},
+   {law:'schrodinger', q:'Decoherence explains…',
+    o:['Faster-than-light signalling','Why superpositions become effectively classical via environmental entanglement — without picking the outcome','The measurement problem, fully solved','Why ψ is real-valued'], a:1,
+    why:'Entangling with the environment destroys interference between branches; which branch you see is the part still argued about.'},
+   {law:'schrodinger', q:'In collider data, a short-lived particle shows up as…',
+    o:['A gap in the histogram','A perfectly sharp spike','A Breit–Wigner bump whose width Γ gives the lifetime, τ = ħ/Γ','Pure noise'], a:2,
+    why:'Short-lived particles literally are resonances — the two laws shaking hands. Wider bump, shorter life.'},
+   {law:'resonance', q:'The 1940 Tacoma Narrows Bridge collapse was caused by…',
+    o:['Simple forced resonance with periodic wind gusts','Aeroelastic flutter — a self-excited feedback between deck twist and wind','Soldiers marching in step','An earthquake'], a:1,
+    why:'Billah & Scanlan (1991): flutter feeds itself with no external metronome — the textbook "resonance" caption is a myth.'},
+   {law:'resonance', q:'Carbon exists in quantity because the Hoyle state…',
+    o:['Is a 7.65 MeV resonance in carbon-12 that makes triple-alpha fusion fast enough','Makes carbon chemically stable','Stops carbon fusing into iron','Absorbs solar neutrinos'], a:0,
+    why:'Without that resonance, beryllium-8 falls apart before the third helium arrives — and almost no carbon would ever form.'}]
+  };
+  const LAWC = {newton:'var(--newton)', einstein:'var(--einstein)', schrodinger:'var(--schro)', resonance:'var(--res)'};
+  const root = document.getElementById('quiz-root');
+  if(!root) return;
+  const state = {};
+  function build(lvl){
+    root.innerHTML = '';
+    const qs = QUIZ[lvl];
+    state[lvl] = state[lvl] || {done:0, right:0};
+    const score = document.createElement('div');
+    score.className = 'q-score';
+    root.appendChild(score);
+    function upScore(){
+      const s = state[lvl];
+      score.innerHTML = '<span>score <b>'+s.right+' / '+s.done+'</b> answered of '+qs.length+'</span>'
+        + '<button class="lvl-tab" id="q-reset">reset this test</button>';
+      score.querySelector('#q-reset').addEventListener('click', ()=>{ state[lvl]={done:0,right:0}; build(lvl); });
+    }
+    qs.forEach((item,qi)=>{
+      const card = document.createElement('div');
+      card.className = 'q-card';
+      card.style.borderLeft = '3px solid '+LAWC[item.law];
+      card.innerHTML = '<p class="q-num">Q'+(qi+1)+' · level 0'+lvl+'</p>'
+        + '<p class="q-text">'+item.q+'</p>';
+      item.o.forEach((opt,oi)=>{
+        const b = document.createElement('button');
+        b.className = 'q-opt';
+        b.innerHTML = '<b>'+'ABCD'[oi]+'</b>'+opt;
+        b.addEventListener('click', ()=>{
+          if(card.dataset.done) return;
+          card.dataset.done = '1';
+          state[lvl].done++;
+          card.querySelectorAll('.q-opt').forEach((x,xi)=>{
+            x.disabled = true;
+            if(xi === item.a) x.classList.add('correct');
+          });
+          if(oi === item.a){ state[lvl].right++; }
+          else b.classList.add('wrong');
+          card.querySelector('.q-why').classList.add('on');
+          upScore();
+        });
+        card.appendChild(b);
+      });
+      const why = document.createElement('div');
+      why.className = 'q-why';
+      why.innerHTML = '<b>why:</b> '+item.why;
+      card.appendChild(why);
+      root.appendChild(card);
+    });
+    upScore();
+  }
+  document.querySelectorAll('#test-tabs .lvl-tab').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('#test-tabs .lvl-tab').forEach(b=>b.classList.toggle('on', b===btn));
+      build(+btn.dataset.lvl);
+    });
+  });
+  build(1);
 })();
 
 /* ============ glossary popovers ============ */
