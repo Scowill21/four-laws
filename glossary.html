@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossary — Four Laws</title>
+<meta name="description" content="Plain-language definitions of every technical term used in the Four Laws field guide.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9883;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6f2e9; --paper-2:#fbf8f1; --ink:#211d16; --ink-soft:#6b6353; --line:#dcd4c2;
+  --newton:#9c5006; --einstein:#c9166e; --schro:#6d28d9; --res:#0b8f75;
+  --serif:"Fraunces", Georgia, serif; --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:16.5px;line-height:1.62;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:0 26px}
+::selection{background:#e8d9b8}
+nav.top{position:sticky;top:0;z-index:50;background:rgba(246,242,233,.94);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;gap:18px;padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
+.wordmark{font-weight:700;font-size:16px;text-decoration:none;color:inherit}
+.wordmark span{color:var(--ink-soft);font-weight:400}
+.backbtn{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
+  background:var(--ink);color:var(--paper);border:1px solid var(--ink);border-radius:999px;padding:8px 16px}
+.backbtn:hover{background:#3a352b}
+#filter{font-family:var(--mono);font-size:12px;padding:8px 14px;border:1px solid var(--line);
+  border-radius:999px;background:var(--paper-2);color:var(--ink);margin-left:auto;width:210px}
+#filter:focus{outline:1px solid var(--ink-soft)}
+header.g-hero{padding:54px 0 8px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+h1{font-size:clamp(36px,6vw,56px);font-weight:700;letter-spacing:-.01em;margin:10px 0 14px}
+.standfirst{max-width:62ch;font-size:17px;color:#3d382e}
+.g-count{font-family:var(--mono);font-size:11px;color:var(--ink-soft);margin:16px 0 0}
+main{padding:26px 0 80px}
+.g-entry{border-top:1px solid var(--line);padding:20px 0 22px;scroll-margin-top:86px}
+.g-entry h3{font-size:20px;font-weight:600;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.g-chip{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:400;
+  color:var(--gc);border:1px solid color-mix(in srgb, var(--gc) 40%, transparent);border-radius:999px;padding:3px 10px}
+.g-entry p{margin-top:8px;max-width:70ch;color:#36312a;font-size:15.5px}
+.g-entry a{color:inherit;text-decoration:underline;text-decoration-style:dotted;text-decoration-thickness:1px;
+  text-decoration-color:#b8ad97;text-underline-offset:3px}
+.g-entry a:hover{text-decoration-style:solid}
+.g-entry:target{background:color-mix(in srgb, var(--paper-2) 60%, #f3e6c3);border-radius:12px;
+  padding-left:18px;padding-right:18px;margin:0 -18px;animation:settle 1.6s ease}
+@keyframes settle{from{background:#f0dda9}to{}}
+.g-entry.hide{display:none}
+footer{border-top:1px solid var(--line);padding:28px 0 60px}
+footer p{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-height:1.8}
+footer a{color:inherit}
+@media (max-width:640px){ #filter{width:100%;margin-left:0} }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <button class="backbtn" id="back">← Back to where you were</button>
+    <a class="wordmark" href="index.html">four laws <span>· glossary</span></a>
+    <input id="filter" type="search" placeholder="type to filter terms…" aria-label="Filter terms">
+  </div>
+</nav>
+
+<header class="g-hero">
+  <div class="wrap">
+    <p class="eyebrow">Every technical term, in plain language first</p>
+    <h1>Glossary</h1>
+    <p class="standfirst">Each entry starts in everyday words, then adds the precise version.
+    Dotted-underlined words on the main page link here; your browser's Back button — or the button
+    above — returns you to the exact spot you left, with your reading levels intact.</p>
+    <p class="g-count" id="gcount"></p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap" id="glist">
+    <article class="g-entry" id="action-principle">
+      <h3>action principle <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>Instead of asking what forces do at each instant, the action principle asks a global question: of every conceivable path between a start and an end, which one does nature actually take? The answer is the path that makes the action S = ∫L dt stationary (δS = 0), and demanding this reproduces Newton's laws exactly. It is the gateway to <a href="#lagrangian-mechanics">Lagrangian mechanics</a> and to Feynman's path-integral formulation of quantum theory.</p>
+    </article>
+    <article class="g-entry" id="aeroelastic-flutter">
+      <h3>aeroelastic flutter <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>Aeroelastic flutter is a runaway vibration in which wind feeds energy into a structure's own motion: movement changes the airflow, and the changed airflow pushes back harder. It's an instability that couples two <a href="#normal-mode">normal modes</a> — usually bending and twisting — so above a critical airspeed the effective <a href="#damping">damping</a> turns negative and oscillations grow exponentially. Flutter, not simple resonance, destroyed the Tacoma Narrows Bridge in 1940, and every new aircraft is flutter-tested.</p>
+    </article>
+    <article class="g-entry" id="annihilation">
+      <h3>annihilation <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>Annihilation is what happens when a particle meets its antiparticle: both vanish and their entire mass becomes radiation. An electron and a <a href="#positron">positron</a> at rest produce two gamma-ray photons of 511 keV each, spending the full E=mc² budget with nothing left over. It is the most complete matter-to-energy conversion known — fission and fusion each convert under 1% of the mass involved.</p>
+    </article>
+    <article class="g-entry" id="antimatter">
+      <h3>antimatter <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>Antimatter is ordinary matter's mirror twin: every particle has a partner with the same mass but opposite charge. Predicted by the <a href="#dirac-equation">Dirac equation</a> and first observed in 1932 with the positron, antiparticles undergo <a href="#annihilation">annihilation</a> on meeting their partners, converting their full mass to energy via E=mc². Why the universe contains so much more matter than antimatter remains an open question.</p>
+    </article>
+    <article class="g-entry" id="band-gap">
+      <h3>band gap <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>In a solid, electrons can't take just any energy — there's a forbidden range, the band gap, between the filled levels and the empty ones above. It's the energy gap separating the valence band from the conduction band: zero in metals, about 1.1 <a href="#electronvolt">eV</a> in silicon, several eV in insulators. The gap sets an LED's color, makes every transistor possible, and a <a href="#quantum-dot">quantum dot</a> tunes its gap just by changing size.</p>
+    </article>
+    <article class="g-entry" id="binding-energy">
+      <h3>binding energy <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>Binding energy is the energy you would have to supply to pull a bound system completely apart. It equals the <a href="#mass-defect">mass defect</a> times c²; for nuclei it runs a few MeV per nucleon, peaking near iron-56 at about 8.8 MeV. That peak is why splitting heavy nuclei and <a href="#fusion">fusing</a> light ones both release energy — each moves toward iron.</p>
+    </article>
+    <article class="g-entry" id="born-rule">
+      <h3>Born rule <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>The rule that turns quantum math into real betting odds: square the wavefunction to get probabilities. Precisely, the probability density for finding a particle at x is P(x) = |ψ(x)|², the squared magnitude of its <a href="#probability-amplitude">probability amplitude</a>. Proposed by Max Born in 1926, it is the only bridge between the smoothly evolving <a href="#wavefunction">wavefunction</a> and the definite outcomes experiments actually record.</p>
+    </article>
+    <article class="g-entry" id="breit-wigner">
+      <h3>Breit–Wigner formula <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>The Breit–Wigner formula describes the bell-shaped peak a short-lived particle or nuclear state traces when you plot reaction probability against energy. It gives the <a href="#cross-section">cross-section</a> σ(E) ∝ 1/[(E − E₀)² + Γ²/4], a Lorentzian centered at E₀ with width Γ; by the <a href="#uncertainty-principle">uncertainty principle</a>, Γ also fixes the state's lifetime, τ = ħ/Γ. The Z boson's mass and width were measured from exactly this curve at CERN's LEP collider.</p>
+    </article>
+    <article class="g-entry" id="chain-reaction">
+      <h3>Chain reaction <span class="g-chip" style="--gc:#6b6353">nuclear &amp; devices</span></h3>
+      <p>A self-feeding cascade: one nuclear split releases neutrons that cause more splits, which release more neutrons, and so on. Each uranium-235 <a href="#fission">fission</a> frees two to three neutrons; if on average more than one of them triggers another fission, the numbers grow exponentially — in a bomb, generations are only nanoseconds apart. Whether the cascade fizzles, holds steady, or runs away is the question of <a href="#criticality">criticality</a>.</p>
+    </article>
+    <article class="g-entry" id="characteristic-impedance">
+      <h3>characteristic impedance <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>Every cable has a natural ratio of voltage to current for waves travelling along it — its characteristic impedance, set purely by the geometry and insulation of its conductors, not by its length. Video coax is built to 75 Ω. Terminate a line in that same impedance and arriving waves are fully absorbed; end it in anything else and part of the wave reflects back up the cable toward a <a href="#standing-wave">standing wave</a>.</p>
+    </article>
+    <article class="g-entry" id="chaos">
+      <h3>chaos <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>Chaos is what happens when a system that follows exact rules still defies prediction, because the tiniest difference in how it starts snowballs into a completely different future. Technically it is sensitive dependence on initial conditions: neighboring trajectories in <a href="#phase-space">phase space</a> separate exponentially fast, at a rate measured by the Lyapunov exponent. Weather, the double pendulum, and three-body orbits are chaotic — deterministic, yet unpredictable in practice.</p>
+    </article>
+    <article class="g-entry" id="commutator">
+      <h3>commutator <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>A gadget that measures whether the order of two operations matters — like how putting on socks then shoes differs from shoes then socks. It is defined as [Â, B̂] = ÂB̂ − B̂Â for two <a href="#operator">operators</a>; A nonzero commutator forces a trade-off: the more sharply one observable is pinned down in a given state, the less sharply the other can be — the exact bound depends on the state. The famous case [x̂, p̂] = iħ is the algebraic root of the <a href="#uncertainty-principle">uncertainty principle</a>.</p>
+    </article>
+    <article class="g-entry" id="configuration-space">
+      <h3>configuration space <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>An imaginary space where a single point records the positions of every particle in a system at once. For N particles in three dimensions it has 3N dimensions — and the many-particle <a href="#wavefunction">wavefunction</a> ψ(x₁, x₂, …, t) lives there, not in ordinary space, which is why entangled particles are so hard to picture. Its cousin <a href="#phase-space">phase space</a> adds momenta alongside the positions.</p>
+    </article>
+    <article class="g-entry" id="control-rod">
+      <h3>Control rod <span class="g-chip" style="--gc:#6b6353">nuclear &amp; devices</span></h3>
+      <p>A rod of neutron-absorbing material — boron, cadmium, or hafnium — that slides into a reactor core to soak up neutrons and slow the reaction. Inserting rods removes neutrons from the <a href="#chain-reaction">chain reaction</a> and pushes the multiplication factor k below 1; withdrawing them lets k rise. In the site's reactor sim you pull the rods and watch k respond — the same lever operators use, plus a full drop (scram) for emergencies.</p>
+    </article>
+    <article class="g-entry" id="coriolis-force">
+      <h3>Coriolis force <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>The Coriolis force is the sideways drift that moving objects seem to acquire when watched from a spinning platform — on Earth, it is why winds curve instead of blowing straight from high to low pressure. It is a <a href="#fictitious-force">fictitious force</a>, F = −2m Ω × v in a frame rotating at angular velocity Ω. It sets hurricanes spinning counterclockwise in the northern hemisphere and steers ocean currents and long-range artillery.</p>
+    </article>
+    <article class="g-entry" id="criticality">
+      <h3>Criticality <span class="g-chip" style="--gc:#6b6353">nuclear &amp; devices</span></h3>
+      <p>The knife-edge balance where a nuclear <a href="#chain-reaction">chain reaction</a> exactly sustains itself — each fission triggers, on average, precisely one more. The bookkeeping number is k, the neutron multiplication factor: k < 1 and the reaction dies away (subcritical), k = 1 and it holds steady (critical), k > 1 and it grows exponentially (supercritical). Reactors live at k = 1, nudged by <a href="#control-rod">control rods</a>; bombs are engineered to slam far past it.</p>
+    </article>
+    <article class="g-entry" id="cross-section">
+      <h3>cross-section <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>A cross-section is the effective target area a particle presents for a given reaction — the bigger it is, the likelier the hit. Written σ and measured in barns (1 barn = 10⁻²⁸ m²), it sets the rate: reactions per second, per target nucleus = beam flux × σ. It isn't a physical size: slow neutrons see a far larger fission cross-section than fast ones — why reactors need a <a href="#moderator">moderator</a> — and resonances spike it, per <a href="#breit-wigner">Breit–Wigner</a>.</p>
+    </article>
+    <article class="g-entry" id="damping">
+      <h3>damping <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>Damping is whatever drains energy from an oscillation and makes it die away — friction, air drag, electrical resistance. Modeled as a force −bv proportional to velocity, it's summarized by the damping ratio ζ: underdamped systems (ζ < 1) ring, critically damped ones (ζ = 1) return fastest without overshoot, and overdamped ones creep back. Car shocks aim near critical; a bell's low damping lets it ring for minutes. Damping sets a resonator's <a href="#q-factor">Q factor</a>.</p>
+    </article>
+    <article class="g-entry" id="decoherence">
+      <h3>decoherence <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>When information about a quantum system leaks into its surroundings — carried off by stray photons or air molecules — its wave behavior washes out and it starts acting classical. Technically, <a href="#entanglement">entanglement</a> with the environment scrambles the phases in a <a href="#superposition">superposition</a>, erasing interference within nanoseconds for anything large; it explains why everyday objects never look quantum, though it does not by itself select the outcome. Fighting decoherence is quantum computing's central battle.</p>
+    </article>
+    <article class="g-entry" id="dirac-equation">
+      <h3>Dirac equation <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>The Dirac equation describes electrons moving near the speed of light, marrying quantum mechanics with <a href="#special-relativity">special relativity</a>. Written (iħγ^μ∂_μ − mc)ψ = 0, it replaces the Schrödinger equation's single wavefunction with a four-component spinor, and the electron's spin-½ emerges automatically instead of being bolted on. Its "extra" negative-energy solutions predicted <a href="#antimatter">antimatter</a> — the positron was discovered in 1932, four years after Dirac wrote it down.</p>
+    </article>
+    <article class="g-entry" id="double-slit-experiment">
+      <h3>double-slit experiment <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>Fire particles one at a time at two narrow slits and, dot by dot, they build the striped pattern of overlapping waves — each particle interferes with itself. Quantum mechanics says the particle's <a href="#wavefunction">wavefunction</a> takes both paths in <a href="#superposition">superposition</a>, and the stripes are where the two paths reinforce; detecting which slit it used destroys them. The experiment works with photons, electrons, and even molecules of up to about 2,000 atoms.</p>
+    </article>
+    <article class="g-entry" id="effective-theory">
+      <h3>effective theory <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>An effective theory is a description of nature that is knowingly approximate but excellent within its limits — Newton's mechanics is the classic case, superb until speeds approach light or actions shrink toward ħ. Formally, it captures physics below some energy scale, with the ignored high-energy details absorbed into measured constants. It is why <a href="#special-relativity">special relativity</a> and quantum mechanics did not overthrow Newton's laws but bracketed their domain.</p>
+    </article>
+    <article class="g-entry" id="ehrenfests-theorem">
+      <h3>Ehrenfest's theorem <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>Ehrenfest's theorem shows that, on average, quantum particles still obey Newton. It states that expectation values follow near-classical equations: d⟨x⟩/dt = ⟨p⟩/m and d⟨p⟩/dt = −⟨∂V/∂x⟩, so the center of a <a href="#wavefunction">wavefunction</a> moves almost exactly like a classical particle feeling the force F = −∂V/∂x. It is the formal bridge between the Schrödinger equation and F = ma.</p>
+    </article>
+    <article class="g-entry" id="eigenvalue">
+      <h3>eigenvalue <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>One of the special numbers built into an operator: the only values a quantum measurement of that quantity can ever return. If Âψ = aψ, then ψ is an eigenstate of the <a href="#operator">operator</a> Â and a is its eigenvalue; Hermitian operators guarantee these are real numbers. The same math surfaces in the resonance law, where a structure's <a href="#normal-mode">normal modes</a> are eigenvalue problems too.</p>
+    </article>
+    <article class="g-entry" id="electronvolt">
+      <h3>electronvolt <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>A tiny unit of energy sized for atoms and particles, where joules are far too big to be handy. One electronvolt is the energy an electron gains crossing a 1-volt gap: 1 eV = 1.6×10⁻¹⁹ J. Particle physicists even quote masses this way through E=mc² — an electron's <a href="#rest-energy">rest energy</a> is 0.511 MeV, a proton's about 938 MeV.</p>
+    </article>
+    <article class="g-entry" id="energy-level">
+      <h3>energy level <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>One rung on the ladder of energies a bound quantum system is allowed to have. Each level is a stationary state whose energy is an eigenvalue of the system's <a href="#hamiltonian">Hamiltonian</a>; in hydrogen the rungs sit at Eₙ = −13.6 eV / n². Jumps between levels emit or absorb photons of exactly the energy difference, which is how lasers and spectral lines work.</p>
+    </article>
+    <article class="g-entry" id="entanglement">
+      <h3>entanglement <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>Two particles can share a single quantum state so completely that neither has definite properties on its own — only the pair does. Formally, the joint <a href="#wavefunction">wavefunction</a> cannot be factored into one state per particle, as in (|↑↓⟩ − |↓↑⟩)/√2; measuring one instantly fixes the correlation, though no usable signal travels between them. Bell-test experiments (2022 Nobel Prize) confirmed these correlations beat any classical explanation.</p>
+    </article>
+    <article class="g-entry" id="equilibrium">
+      <h3>equilibrium <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>Equilibrium means all the influences on an object balance out, so its motion does not change. Formally, both the <a href="#net-force">net force</a> and the net torque are zero — ΣF = 0 and Στ = 0 — called static equilibrium if the object is at rest and dynamic if it is coasting. Whether the balance is stable or unstable depends on whether a small nudge gets pulled back or amplified.</p>
+    </article>
+    <article class="g-entry" id="fano-resonance">
+      <h3>Fano resonance <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>A Fano resonance is a lopsided resonance that both spikes and dips — on one side of the peak the response drops below the background. It appears when two routes to the same final state <a href="#interference">interfere</a>: a sharp resonant path and a smooth background one, giving the profile (q + ε)²/(1 + ε²) instead of the symmetric <a href="#breit-wigner">Breit–Wigner</a> peak. Fano explained helium's strange absorption lines this way in 1961; the shape now powers nanophotonic sensors.</p>
+    </article>
+    <article class="g-entry" id="fictitious-force">
+      <h3>fictitious force <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>A fictitious force is a push you feel only because your own viewpoint is accelerating — the "force" that flings you sideways in a turning car, when really the car is turning under you. Formally, writing Newton's second law in a non-<a href="#inertial-frame">inertial frame</a> requires extra terms such as −ma_frame that act like forces proportional to each object's mass. Centrifugal force and the <a href="#coriolis-force">Coriolis force</a> are the classic examples.</p>
+    </article>
+    <article class="g-entry" id="fission">
+      <h3>fission <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>Fission is a heavy atomic nucleus splitting into two lighter ones and releasing energy. When uranium-235 absorbs a neutron and splits, about 200 MeV is released, because the fragments are more tightly bound and their combined mass is slightly smaller — E=mc² in action. The extra neutrons set off further splits, the <a href="#chain-reaction">chain reaction</a> at the heart of nuclear reactors.</p>
+    </article>
+    <article class="g-entry" id="floating-gate">
+      <h3>Floating gate <span class="g-chip" style="--gc:#6b6353">nuclear &amp; devices</span></h3>
+      <p>The electrically isolated island inside a flash-memory transistor where your data physically lives as trapped electrons. It is walled off on every side by insulating oxide, so electrons reach it by quantum <a href="#tunneling">tunneling</a> through a barrier only a few nanometers thick — and once there, they stay for a decade or more. Every phone photo and SSD file is a pattern of charge on billions of floating gates.</p>
+    </article>
+    <article class="g-entry" id="four-momentum">
+      <h3>four-momentum <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>Four-momentum packages an object's energy and ordinary momentum into one arrow in <a href="#spacetime">spacetime</a>. Its components are (E/c, pₓ, p_y, p_z), and its length, given by E² − (pc)² = (mc²)², is the same for every observer — that length defines the <a href="#invariant-mass">invariant mass</a>. Conserving this single object unifies the conservation of energy and momentum, which is how particle physicists reconstruct collisions.</p>
+    </article>
+    <article class="g-entry" id="fusion">
+      <h3>fusion <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>Fusion is light atomic nuclei merging into a heavier one and releasing energy. Fusing hydrogen into helium converts about 0.7% of the mass into energy — roughly 26.7 MeV per helium-4 formed — because helium sits deeper in the <a href="#binding-energy">binding-energy</a> curve. Fusion powers the Sun and every star, and is the reaction that laboratory projects like ITER aim to harness on Earth.</p>
+    </article>
+    <article class="g-entry" id="general-relativity">
+      <h3>general relativity <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>General relativity is Einstein's theory of gravity: mass and energy bend <a href="#spacetime">spacetime</a>, and objects "fall" simply by following the straightest possible paths through the curved geometry. The Einstein field equations, G_μν = (8πG/c⁴) T_μν, set the curvature on the left equal to the matter-and-energy content on the right, the <a href="#stress-energy-tensor">stress-energy tensor</a>. It predicts black holes, gravitational waves, and the clock corrections GPS satellites apply every day.</p>
+    </article>
+    <article class="g-entry" id="gluon">
+      <h3>gluon <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>Gluons are the messenger particles that glue <a href="#quark">quarks</a> together inside protons and neutrons. They are the massless force carriers of <a href="#qcd">QCD</a>, and unlike photons they carry color charge themselves, so gluons interact with each other and the force strengthens with distance instead of fading. The energy of this seething gluon field supplies most of the mass of ordinary matter.</p>
+    </article>
+    <article class="g-entry" id="hamiltonian">
+      <h3>Hamiltonian <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>The <a href="#operator">operator</a> standing for a system's total energy — and the engine that drives all quantum change. Written Ĥ = kinetic + potential energy, it stars in the Schrödinger equation iħ ∂ψ/∂t = Ĥψ, and its eigenvalues are the system's allowed <a href="#energy-level">energy levels</a>. Specify the Hamiltonian and you have specified the physics; this site's quantum simulations each begin by choosing one.</p>
+    </article>
+    <article class="g-entry" id="helioseismology">
+      <h3>Helioseismology <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>The science of reading the Sun's interior by watching its surface quiver. Sound waves trapped inside make the whole Sun ring in millions of <a href="#normal-mode">normal modes</a> — pressure oscillations with periods near five minutes — and their measured frequencies can be inverted to map temperature, density, and rotation deep beneath the surface, layers no telescope can see directly. This site turns those solar p-modes into audio you can hear.</p>
+    </article>
+    <article class="g-entry" id="higgs-boson">
+      <h3>Higgs boson <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>The Higgs boson is the particle that confirmed how fundamental particles acquire their mass. It is a quantum ripple of the Higgs field filling all space; particles gain mass by interacting with that field, and the boson itself weighs about 125 GeV/c². It was discovered at CERN's Large Hadron Collider in 2012 — though most of your body's mass comes from <a href="#qcd">QCD</a> binding energy, not the Higgs.</p>
+    </article>
+    <article class="g-entry" id="hilbert-space">
+      <h3>Hilbert space <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>The abstract arena where quantum states live: a kind of space with one direction for every distinct possibility a system has. Mathematically it is a complete complex vector space with an inner product; a state is a unit vector in it, and adding vectors is what <a href="#superposition">superposition</a> means. A single <a href="#wavefunction">wavefunction</a> ψ(x) is just one such vector written out in the position basis.</p>
+    </article>
+    <article class="g-entry" id="hoyle-state">
+      <h3>Hoyle state <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>An excited energy state of the carbon-12 nucleus that makes carbon — and us — possible. Sitting 7.65 MeV above carbon's ground state, it lies just above the combined energy of three helium-4 nuclei, turning the triple-alpha <a href="#fusion">fusion</a> step in stars into a resonance that boosts carbon production enormously. Fred Hoyle predicted it in 1953 from the bare fact that carbon is abundant, and experiment promptly found it.</p>
+    </article>
+    <article class="g-entry" id="hydrostatic-equilibrium">
+      <h3>hydrostatic equilibrium <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>Hydrostatic equilibrium is a fluid's version of <a href="#equilibrium">equilibrium</a>, the standoff that keeps a star or an atmosphere in one piece: gravity pulls the material inward while pressure pushes it back out. Each layer satisfies dP/dr = −ρg, meaning pressure rises with depth exactly fast enough to carry the weight above. It is why the Sun neither collapses nor flies apart, and why air thins with altitude.</p>
+    </article>
+    <article class="g-entry" id="hyperfine-splitting">
+      <h3>hyperfine splitting <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>Hyperfine splitting is a hair-thin split in an atom's <a href="#energy-level">energy levels</a> caused by the magnetic interaction between the electron and the spinning nucleus. In hydrogen the split is only about 5.9 μeV, so flipping between the two states emits a 1420 MHz radio photon — the 21 cm line astronomers use to map hydrogen across the galaxy. A cesium hyperfine transition (9,192,631,770 Hz) defines the SI second in atomic clocks.</p>
+    </article>
+    <article class="g-entry" id="inertia">
+      <h3>inertia <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>Inertia is the tendency of objects to keep doing whatever they are already doing — staying put, or coasting at a steady speed in a straight line — until something pushes on them. Newton's first law makes this exact: when the <a href="#net-force">net force</a> on a body is zero its velocity does not change, and mass measures inertia, since a = F/m means more mass gives less acceleration for the same push.</p>
+    </article>
+    <article class="g-entry" id="inertial-frame">
+      <h3>inertial frame <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>An inertial frame is a viewpoint that is not itself accelerating — riding in one, you feel no push, and free objects drift past in straight lines. Formally it is a reference frame in which Newton's first law holds exactly: zero net force means constant velocity. In an accelerating or rotating frame the law appears to fail unless you add a <a href="#fictitious-force">fictitious force</a>; <a href="#special-relativity">special relativity</a> is built on comparing inertial frames.</p>
+    </article>
+    <article class="g-entry" id="interference">
+      <h3>interference <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>When two waves overlap, they can pile up where crests meet or cancel where crest meets trough. In quantum mechanics it is <a href="#probability-amplitude">probability amplitudes</a> that add: |ψ₁ + ψ₂|² contains a cross term, 2Re(ψ₁*ψ₂), that can boost or erase probability. It paints the stripes of the <a href="#double-slit-experiment">double-slit experiment</a>, which build up even when particles arrive one at a time.</p>
+    </article>
+    <article class="g-entry" id="invariant-mass">
+      <h3>invariant mass <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>Invariant mass is the one mass everybody agrees on, no matter how fast they are moving relative to the object. It is defined by m²c⁴ = E² − (pc)², the unchanging length of the <a href="#four-momentum">four-momentum</a>. This is what modern physicists mean by "mass"; the older picture of a "relativistic mass" that grows with speed has been retired.</p>
+    </article>
+    <article class="g-entry" id="keplers-laws">
+      <h3>Kepler's laws <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>Kepler's laws are three patterns describing how planets move: orbits are ellipses with the Sun at one focus; a planet sweeps out equal areas in equal times; and orbital period squared scales with orbit size cubed, T² ∝ a³. Newton derived all three from his laws of motion plus inverse-square gravity — the equal-area rule is conservation of angular momentum in disguise (see <a href="#noethers-theorem">Noether's theorem</a>) — the first proof that one mechanics runs both the heavens and the ground.</p>
+    </article>
+    <article class="g-entry" id="kinetic-energy">
+      <h3>kinetic energy <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>Kinetic energy is the extra energy an object carries because it is moving. In relativity it is KE = (γ − 1)mc², where γ is the <a href="#lorentz-factor">Lorentz factor</a>; at everyday speeds this reduces to the familiar ½mv². The relativistic form shows why nothing with mass can reach light speed: as v approaches c, the energy required grows without limit.</p>
+    </article>
+    <article class="g-entry" id="lagrangian-mechanics">
+      <h3>Lagrangian mechanics <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>Lagrangian mechanics redoes Newton's laws using energies instead of forces, which makes hard problems — pendulums on carts, orbits, systems with constraints — dramatically cleaner. Define L = T − V, kinetic minus potential energy; the <a href="#action-principle">action principle</a> then yields one Euler–Lagrange equation per coordinate, d/dt(∂L/∂q̇) = ∂L/∂q. It is the language in which <a href="#noethers-theorem">Noether's theorem</a> and modern field theory are written.</p>
+    </article>
+    <article class="g-entry" id="larmor-frequency">
+      <h3>Larmor frequency <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>The rate at which a spinning nucleus's magnetic axis wobbles around a magnetic field, the way a tilted gyroscope slowly circles under gravity. The precession frequency is ω = γB in radians per second (f = γB/2π in cycles), proportional to field strength B through the particle's gyromagnetic ratio γ — for protons, about 42.6 MHz per tesla. MRI works by broadcasting radio waves at exactly this <a href="#natural-frequency">natural frequency</a>, so the hydrogen nuclei in your body absorb and re-emit them in resonance.</p>
+    </article>
+    <article class="g-entry" id="lorentz-factor">
+      <h3>Lorentz factor <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>The Lorentz factor measures how strongly relativity kicks in at a given speed — how much time slows, lengths contract, and energy grows. It is γ = 1/√(1 − v²/c²): essentially 1 at everyday speeds, 2 at 87% of light speed, and unbounded as v approaches c. It appears all through <a href="#special-relativity">special relativity</a>, including the relativistic form of <a href="#kinetic-energy">kinetic energy</a>.</p>
+    </article>
+    <article class="g-entry" id="mass-defect">
+      <h3>mass defect <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>The mass defect is the small amount of mass that goes missing when particles bind together, because the bound system holds less energy than its separated parts. It equals Δm = ΔE/c², the <a href="#binding-energy">binding energy</a> divided by c²; a helium-4 nucleus weighs about 0.7% less than its four nucleons weighed separately. Weighing nuclei precisely is therefore a direct reading of E=mc².</p>
+    </article>
+    <article class="g-entry" id="mems">
+      <h3>MEMS <span class="g-chip" style="--gc:#6b6353">nuclear &amp; devices</span></h3>
+      <p>Machines so small they are etched into silicon chips: springs, levers, mirrors, and vibrating masses measured in micrometers. MEMS (micro-electro-mechanical systems) are built with the same photolithography that makes integrated circuits, combining moving mechanical parts with electronics on one die. Your phone senses every tilt and shake through a MEMS accelerometer — a <a href="#proof-mass">proof mass</a> on microscopic springs whose deflection is read out capacitively.</p>
+    </article>
+    <article class="g-entry" id="moderator">
+      <h3>Moderator <span class="g-chip" style="--gc:#6b6353">nuclear &amp; devices</span></h3>
+      <p>The material in a nuclear reactor that slows neutrons down, because slow neutrons split uranium far more readily than fast ones. Fission-born neutrons emerge near 2 MeV; collisions with light nuclei — hydrogen in water, or carbon in graphite — shed that energy like billiard balls until the neutrons are thermal, around 0.025 eV, where uranium-235's <a href="#cross-section">cross-section</a> for <a href="#fission">fission</a> is hundreds of times larger. The site's reactor sim shows this slowing as literal Newtonian billiards.</p>
+    </article>
+    <article class="g-entry" id="momentum">
+      <h3>momentum <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>Momentum measures how hard it is to stop something that is moving — more mass or more speed means more of it. It is defined as p = mv, and Newton's second law says the <a href="#net-force">net force</a> equals its rate of change, F = dp/dt; with no external force, total momentum is exactly conserved. That conservation law follows from the symmetry of space itself, via <a href="#noethers-theorem">Noether's theorem</a>.</p>
+    </article>
+    <article class="g-entry" id="natural-frequency">
+      <h3>natural frequency <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>The natural frequency is the rate at which a system swings on its own after you disturb it and let go — a plucked string, a pushed swing. For a mass on a spring it's ω₀ = √(k/m): stiffer means faster, heavier means slower. Driving a system at its natural frequency produces resonance — the heart of this site's fourth law — and how strongly it responds is set by its <a href="#q-factor">Q factor</a>.</p>
+    </article>
+    <article class="g-entry" id="net-force">
+      <h3>net force <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>The net force is what remains after every push and pull on an object is added up, cancellations included. Formally it is the vector sum ΣF of all forces acting, and Newton's second law ties it to motion: F = ma, or more generally F = dp/dt, the rate of change of <a href="#momentum">momentum</a>. When the sum is zero, the object is in <a href="#equilibrium">equilibrium</a> and simply keeps its current velocity.</p>
+    </article>
+    <article class="g-entry" id="noethers-theorem">
+      <h3>Noether's theorem <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>Noether's theorem says that every symmetry of nature hides a conservation law. Precisely (Emmy Noether, 1918): every continuous symmetry of the action corresponds to a conserved quantity — physics unchanged by shifts in time gives energy conservation, shifts in space give <a href="#momentum">momentum</a>, and rotations give angular momentum. It is why conservation laws are not accidents but direct symptoms of the shape of physical law.</p>
+    </article>
+    <article class="g-entry" id="normal-mode">
+      <h3>normal mode <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>A normal mode is a vibration pattern in which every part of a system swings together at one shared frequency. A system of N coupled oscillators has exactly N such modes, each with its own <a href="#natural-frequency">natural frequency</a>, and any motion whatsoever is a sum of them — a guitar string's harmonics are its modes. The Sun rings in millions of normal modes, which is how <a href="#helioseismology">helioseismology</a> sees inside a star.</p>
+    </article>
+    <article class="g-entry" id="operator">
+      <h3>operator <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>In quantum mechanics, every measurable quantity — position, momentum, energy — is represented not by a number but by an action performed on the wavefunction. Formally an observable is a Hermitian linear operator on <a href="#hilbert-space">Hilbert space</a>, such as momentum's p̂ = −iħ ∂/∂x, and the only possible results of a measurement are that operator's <a href="#eigenvalue">eigenvalues</a>.</p>
+    </article>
+    <article class="g-entry" id="orbital-resonance">
+      <h3>orbital resonance <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>An orbital resonance occurs when two orbiting bodies' periods form a simple ratio — say 2:1 — so their gravitational tugs repeat at the same points and add up, like pushing a swing in rhythm. Through <a href="#keplers-laws">Kepler's third law</a> the period ratio pins down the orbit sizes. Resonances can lock orbits — Jupiter's moons Io, Europa, and Ganymede keep a 1:2:4 rhythm, Pluto and Neptune a 2:3 — or destabilize them, carving the Kirkwood gaps in the asteroid belt.</p>
+    </article>
+    <article class="g-entry" id="pair-production">
+      <h3>pair production <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>Pair production is <a href="#annihilation">annihilation</a> run backwards: a high-energy photon's energy turns into a particle and its antiparticle. It requires at least 1.022 MeV — twice the electron's rest energy — plus a nearby nucleus to balance momentum. It is a main way gamma rays are absorbed in dense matter, and it is how a <a href="#terrestrial-gamma-ray-flash">terrestrial gamma-ray flash</a> mints positrons above a thunderstorm.</p>
+    </article>
+    <article class="g-entry" id="parametric-resonance">
+      <h3>parametric resonance <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>Parametric resonance is how you pump a swing while standing on it: instead of being pushed from outside, you rhythmically change a property of the system itself — here, the pendulum's effective length. Modulating a parameter at twice the <a href="#natural-frequency">natural frequency</a> makes the amplitude grow exponentially, with the math governed by the Mathieu equation. The giant Botafumeiro censer in Santiago de Compostela is pumped this way, and parametric amplifiers boost faint signals the same way.</p>
+    </article>
+    <article class="g-entry" id="phase-lag">
+      <h3>phase lag <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>Phase lag is how far a driven oscillator's motion trails behind the force pushing it. Drive well below the <a href="#natural-frequency">natural frequency</a> and motion tracks the push (lag ≈ 0°); far above, it moves opposite (≈ 180°); exactly at resonance the lag is 90°, so the push always lands while velocity is greatest and feeds in maximum energy. That 90° crossing is the fingerprint experimenters use to spot a true resonance.</p>
+    </article>
+    <article class="g-entry" id="phase-locked-loop">
+      <h3>phase-locked loop <span class="g-chip" style="--gc:#6b6353">nuclear &amp; devices</span></h3>
+      <p>A phase-locked loop (PLL) is an oscillator that continuously compares its own ticking with an incoming signal and nudges itself until the two run in step — a servo that locks onto a rhythm. PLLs recover the clock buried in a data stream, multiply reference frequencies, and let a shaky local oscillator inherit the stability of a clean one. Every reclocking video converter, radio tuner, and GPS receiver carries at least one.</p>
+    </article>
+    <article class="g-entry" id="phase-space">
+      <h3>phase space <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>Phase space is a map on which a single point records everything about a system at one instant — every position and every <a href="#momentum">momentum</a> at once. For N particles it has 6N dimensions, and the system's whole history becomes one curve threading through it; Liouville's theorem says this flow preserves volume. It is the natural arena for statistical mechanics and for studying <a href="#chaos">chaos</a>.</p>
+    </article>
+    <article class="g-entry" id="positron">
+      <h3>positron <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>A positron is the <a href="#antimatter">antimatter</a> twin of the electron: identical mass, but positive charge. Its rest energy is 511 keV, and when it meets an electron the pair annihilates into gamma rays. PET scanners — positron emission tomography — detect the resulting back-to-back 511 keV photons to map activity inside the body, making this the antiparticle you are most likely to meet in daily life.</p>
+    </article>
+    <article class="g-entry" id="probability-amplitude">
+      <h3>probability amplitude <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>Quantum theory's raw ingredient for chance: a number that carries both a size and a phase, like a little arrow. Formally it is a complex number whose absolute square gives a probability via the <a href="#born-rule">Born rule</a>. Because amplitudes add before they are squared, two routes to the same outcome can reinforce or cancel each other — the origin of <a href="#interference">interference</a>.</p>
+    </article>
+    <article class="g-entry" id="proof-mass">
+      <h3>Proof mass <span class="g-chip" style="--gc:#6b6353">nuclear &amp; devices</span></h3>
+      <p>The weight inside an accelerometer that does the sensing: when the device accelerates, the weight's <a href="#inertia">inertia</a> makes it lag behind, and that relative motion is measured. Formally it is a known test mass m on a spring of stiffness k; steady acceleration a deflects it by x = ma/k. In a <a href="#mems">MEMS</a> chip the proof mass is micrometers across, its deflection read out as a change in capacitance.</p>
+    </article>
+    <article class="g-entry" id="qcd">
+      <h3>QCD <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>Quantum chromodynamics, or QCD, is the theory of the strong force that binds quarks into protons, neutrons, and nuclei. It is a <a href="#quantum-field-theory">quantum field theory</a> in which quarks carry a three-valued "color" charge exchanged via <a href="#gluon">gluons</a>; the force weakens at short range (asymptotic freedom) and confines quarks at long range. QCD calculations show that roughly 99% of a proton's mass is field energy — E=mc² at work inside you.</p>
+    </article>
+    <article class="g-entry" id="q-factor">
+      <h3>Q factor <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>Q factor measures how good a resonator is — how many times it rings before the vibration dies away. Precisely, Q = 2π × (energy stored)/(energy lost per cycle), which also equals ω₀/Δω, so high-Q systems respond only in a razor-thin band around their <a href="#natural-frequency">natural frequency</a>. A wine glass manages a few thousand, a quartz watch crystal around 100,000, and superconducting cavities exceed 10¹⁰. Low <a href="#damping">damping</a> means high Q and a long, sharp ring.</p>
+    </article>
+    <article class="g-entry" id="quantization">
+      <h3>quantization <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>The discovery that nature often deals in steps, not smooth ramps — certain quantities can only take specific separated values. Confining a quantum system forces its energy onto a discrete ladder of allowed <a href="#energy-level">energy levels</a>, the <a href="#eigenvalue">eigenvalues</a> of its Hamiltonian; light likewise comes in photons of energy E = hf. It explains why atoms emit sharp spectral lines instead of a continuous rainbow.</p>
+    </article>
+    <article class="g-entry" id="quantum-dot">
+      <h3>quantum dot <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>A quantum dot is a semiconductor crystal so tiny — just a few nanometers across — that it traps electrons like an artificial atom. Confinement quantizes the electron's <a href="#energy-level">energy levels</a>, and the effective <a href="#band-gap">band gap</a> widens as the dot shrinks (roughly as 1/L², like a particle in a box), so smaller dots glow bluer. Size-tuned dots light QLED televisions and tag molecules in medical imaging; their developers won the 2023 Nobel Prize in Chemistry.</p>
+    </article>
+    <article class="g-entry" id="quantum-field-theory">
+      <h3>quantum field theory <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>Quantum field theory says particles aren't tiny balls but ripples in fields that fill all of space — one field for electrons, one for photons, and so on. It merges quantum mechanics with <a href="#special-relativity">special relativity</a>, treating each particle as a quantized excitation of its field, which is why particles can be created and destroyed in <a href="#annihilation">annihilation</a> and collisions. Its crown jewel, QED, predicts the electron's magnetic moment to about one part in a trillion.</p>
+    </article>
+    <article class="g-entry" id="quark">
+      <h3>quark <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>Quarks are the tiny building blocks inside protons and neutrons. They come in six flavors (up, down, charm, strange, top, bottom), carry fractional electric charge (+2/3 or −1/3), and are held by <a href="#gluon">gluons</a> so tightly that no quark is ever seen alone — a property called confinement. Remarkably, quark masses supply only about 1% of a proton's mass; the rest is <a href="#binding-energy">binding energy</a> via E=mc².</p>
+    </article>
+    <article class="g-entry" id="resonance-escape-probability">
+      <h3>Resonance escape probability <span class="g-chip" style="--gc:#6b6353">nuclear &amp; devices</span></h3>
+      <p>The chance that a slowing neutron makes it past a minefield of energies where uranium-238 is eager to capture it. As neutrons decelerate from MeV to thermal energies, they must cross U-238's sharp absorption resonances in the epithermal range; the fraction that survive uncaptured is the factor p in the reactor's four-factor formula. A good <a href="#moderator">moderator</a> hustles neutrons through this dangerous band quickly, keeping p high.</p>
+    </article>
+    <article class="g-entry" id="rest-energy">
+      <h3>rest energy <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>Rest energy is the energy an object has just by existing, even while sitting perfectly still. It equals E₀ = mc², where m is the object's <a href="#invariant-mass">invariant mass</a> and c is the speed of light, so one gram of matter stores about 9 × 10¹³ joules. It is the headline idea of this site's E=mc² chapter: mass itself is stored energy.</p>
+    </article>
+    <article class="g-entry" id="rlc-circuit">
+      <h3>RLC circuit <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>An RLC circuit is the electrical twin of a mass on a spring: charge sloshes between a capacitor and an inductor while a resistor drains it. Inductance and capacitance set the <a href="#natural-frequency">natural frequency</a>, ω₀ = 1/√(LC), and resistance plays the role of <a href="#damping">damping</a> — the same equation as the mechanical oscillator with different letters. Tuning a radio means adjusting C so the circuit resonates with one station's frequency and ignores the rest.</p>
+    </article>
+    <article class="g-entry" id="schumann-resonance">
+      <h3>Schumann resonance <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>The whole Earth rings like a bell: electromagnetic waves from lightning race around the globe between the ground and the ionosphere and pile up into standing waves. The fundamental <a href="#normal-mode">mode</a> sits near 7.83 Hz — roughly light speed divided by Earth's circumference — with overtones near 14, 21, and 27 Hz, as Winfried Schumann predicted in 1952. Some fifty lightning strikes per second keep the planetary cavity humming continuously.</p>
+    </article>
+    <article class="g-entry" id="skin-effect">
+      <h3>skin effect <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>At high frequencies, alternating current stops using a conductor's full cross-section and crowds into a thin layer at its surface — the skin. The depth shrinks with the square root of frequency; for copper it is about two microns at 1 GHz, dropping under one micron by around 5 GHz. Less copper carrying the current means more resistance, which is why cable loss climbs with frequency and the fastest video formats have the shortest reach.</p>
+    </article>
+    <article class="g-entry" id="spacetime">
+      <h3>spacetime <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>Spacetime is the four-dimensional arena in which the three dimensions of space and one of time are woven into a single fabric. <a href="#special-relativity">Special relativity</a> makes the weave precise: observers disagree about distances and durations separately but all agree on the interval s² = (ct)² − x² − y² − z². In <a href="#general-relativity">general relativity</a> the fabric bends, and that curvature is what we experience as gravity.</p>
+    </article>
+    <article class="g-entry" id="special-relativity">
+      <h3>special relativity <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>Special relativity is Einstein's 1905 discovery that measurements of space and time depend on how fast you are moving, because two things never vary: the laws of physics and the speed of light, identical for every inertial observer. From those two postulates follow time dilation and length contraction — both governed by the <a href="#lorentz-factor">Lorentz factor</a> γ = 1/√(1 − v²/c²) — and E = mc². It is the framework behind <a href="#rest-energy">rest energy</a> and all of nuclear physics.</p>
+    </article>
+    <article class="g-entry" id="standing-wave">
+      <h3>standing wave <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>When a wave and its reflection share the same stretch of string, pipe, or cable, they interfere into a pattern that oscillates in place — a standing wave. The peaks and dead spots stop travelling, and only certain wavelengths fit the length, which is why instruments have <a href="#normal-mode">normal modes</a>. On a video line it is a fault: reflections from a bad termination stand on the cable and ghost the signal.</p>
+    </article>
+    <article class="g-entry" id="stimulated-emission">
+      <h3>stimulated emission <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>Stimulated emission is when a photon flying past an excited atom triggers it to drop to a lower <a href="#energy-level">energy level</a> and emit a second photon that's a perfect clone — same frequency, phase, direction, and polarization. Einstein predicted the process in 1917. With a population inversion (more atoms excited than not), one photon triggers two, two trigger four, and light amplifies — the working principle of every laser (the "se" in the acronym).</p>
+    </article>
+    <article class="g-entry" id="stress-energy-tensor">
+      <h3>stress-energy tensor <span class="g-chip" style="--gc:var(--einstein)">relativity</span></h3>
+      <p>The stress-energy tensor is the master inventory of energy, momentum, pressure, and stress at every point in space. Written Tμν, it is the source term in Einstein's field equations, Gμν = (8πG/c⁴)Tμν — the thing that tells <a href="#spacetime">spacetime</a> how to curve. In <a href="#general-relativity">general relativity</a> it means gravity responds not only to mass but to energy, pressure, and momentum flow.</p>
+    </article>
+    <article class="g-entry" id="superconductivity">
+      <h3>Superconductivity <span class="g-chip" style="--gc:#6b6353">nuclear &amp; devices</span></h3>
+      <p>Below a critical temperature, some materials lose all electrical resistance — a current in a closed superconducting loop can circulate for years without fading. In BCS theory (1957), electrons bind into Cooper pairs that condense into one shared quantum state, which also expels magnetic fields (the Meissner effect). The LHC's dipole magnets and MRI scanners — whose field sets the proton <a href="#larmor-frequency">Larmor frequency</a> — run on superconducting coils bathed in liquid helium.</p>
+    </article>
+    <article class="g-entry" id="superposition">
+      <h3>superposition <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>A quantum system need not be in just one state — it can exist in a weighted blend of several at once. Because the Schrödinger equation is linear, if ψ₁ and ψ₂ are valid states then aψ₁ + bψ₂ is too, with complex coefficients that set each outcome's odds via the <a href="#born-rule">Born rule</a>. Superpositions are what make <a href="#interference">interference</a> and quantum computing possible.</p>
+    </article>
+    <article class="g-entry" id="terminal-velocity">
+      <h3>terminal velocity <span class="g-chip" style="--gc:var(--newton)">mechanics</span></h3>
+      <p>Terminal velocity is the ceiling on a falling object's speed: as it moves faster, air resistance grows until it exactly cancels gravity, and the speed stops rising. At that point the <a href="#net-force">net force</a> is zero — for turbulent drag the balance is mg = ½ρC_d A v² — and the fall continues at constant velocity. A belly-down skydiver tops out near 55 m/s; a raindrop, at just a few meters per second.</p>
+    </article>
+    <article class="g-entry" id="terrestrial-gamma-ray-flash">
+      <h3>Terrestrial gamma-ray flash <span class="g-chip" style="--gc:#6b6353">nuclear &amp; devices</span></h3>
+      <p>A burst of gamma rays fired upward from a thunderstorm — Earth acting as a natural particle accelerator. Intense electric fields above lightning drive avalanches of electrons to near light speed; braking against air nuclei, they emit gamma rays up to tens of MeV in flashes lasting under a millisecond. Discovered by satellite in 1994, the flashes are energetic enough to make <a href="#antimatter">antimatter</a>: gamma rays above 1.022 MeV create electron-positron pairs via <a href="#pair-production">pair production</a>.</p>
+    </article>
+    <article class="g-entry" id="tuned-mass-damper">
+      <h3>Tuned mass damper <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>A heavy weight hung inside a skyscraper or bridge, tuned so it swings against the structure's sway and cancels it. Technically it is an auxiliary mass-spring-damper set near the structure's <a href="#natural-frequency">natural frequency</a>; moving out of phase, it drains vibration energy and splits one tall resonance peak into two smaller, well-damped ones. Taipei 101's 660-tonne steel sphere is the famous example.</p>
+    </article>
+    <article class="g-entry" id="tunneling">
+      <h3>tunneling <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>A quantum particle can sneak through an energy barrier it does not have the energy to climb. Its <a href="#wavefunction">wavefunction</a> decays exponentially inside the barrier but emerges with a small surviving amplitude, giving a transmission probability of roughly e^(−2κL) with κ = √(2m(V−E))/ħ. Tunneling drives <a href="#fusion">fusion</a> in the Sun, alpha decay, and the flash memory in your phone.</p>
+    </article>
+    <article class="g-entry" id="uncertainty-principle">
+      <h3>uncertainty principle <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>Certain pairs of quantities — position and momentum above all — cannot both be sharply defined at the same time, no matter how good the instruments. Heisenberg's relation Δx · Δp ≥ ħ/2 follows directly from the <a href="#commutator">commutator</a> [x̂, p̂] = iħ: it is a property of the <a href="#wavefunction">wavefunction</a> itself, not measurement clumsiness. It sets the size of atoms and the zero-point jitter no cooling can remove.</p>
+    </article>
+    <article class="g-entry" id="unitary-evolution">
+      <h3>unitary evolution <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>Between measurements, a quantum state changes smoothly and reversibly, never gaining or losing total probability. Formally ψ(t) = Û(t) ψ(0), where Û = e^(−iĤt/ħ) is a unitary operator (Û†Û = 1) generated by the <a href="#hamiltonian">Hamiltonian</a> — so probabilities always sum to 1 and, in principle, no information is destroyed. Measurement's apparent break with this rule is what <a href="#decoherence">decoherence</a> helps explain.</p>
+    </article>
+    <article class="g-entry" id="velocity-factor">
+      <h3>velocity factor <span class="g-chip" style="--gc:var(--res)">waves &amp; resonance</span></h3>
+      <p>Signals never travel a cable at full light speed: the insulation and geometry set a fraction of c called the velocity factor — typically about 0.85 for foam-dielectric coax, and about 0.68 for glass fiber, where light is slowed by the refractive index. It converts length directly into delay: at 0.85c, each metre of cable costs about four nanoseconds.</p>
+    </article>
+    <article class="g-entry" id="wavefunction">
+      <h3>wavefunction <span class="g-chip" style="--gc:var(--schro)">quantum</span></h3>
+      <p>The mathematical object that holds everything quantum mechanics can say about a system. It is a complex-valued function ψ(x, t) whose squared magnitude |ψ|² gives the probability density of finding the particle at each place — the <a href="#born-rule">Born rule</a> — and whose change in time is set by the Schrödinger equation. The quantum visuals on this site are pictures of ψ evolving.</p>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>FOUR LAWS · glossary — definitions follow the same verified sources as the
+    <a href="index.html#sources">main page</a>.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('back').addEventListener('click', ()=>{
+  if(history.length > 1) history.back();
+  else location.href = 'index.html';
+});
+const entries = [...document.querySelectorAll('.g-entry')];
+const count = document.getElementById('gcount');
+function refresh(q){
+  let shown = 0;
+  entries.forEach(e=>{
+    const hit = !q || e.textContent.toLowerCase().includes(q);
+    e.classList.toggle('hide', !hit);
+    if(hit) shown++;
+  });
+  count.textContent = q ? shown+' of '+entries.length+' terms' : entries.length+' terms';
+}
+document.getElementById('filter').addEventListener('input', e=>refresh(e.target.value.trim().toLowerCase()));
+refresh('');
+/* arriving via a term link: make sure the target entry is centered */
+if(location.hash){
+  const el = document.getElementById(location.hash.slice(1));
+  if(el) setTimeout(()=>el.scrollIntoView({block:'center', behavior:'instant'}), 30);
+}
+</script>
+</body>
+</html>
