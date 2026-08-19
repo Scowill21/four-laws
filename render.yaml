@@ -9,3 +9,10 @@ services:
     runtime: static
     buildCommand: ""
     staticPublishPath: .
+    # Root "/" 404s on Render when publishing the repo root ("no-server" routing
+    # quirk) even though /index.html serves — this rewrite makes "/" (and any
+    # unknown path) land on the site. Real files are always served first.
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
